@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './Home.jsx'
-import Lista from './Lista.jsx'
+import List from './List.jsx'
 import './App.css';
 
 function App() {
+  /* lo que estaba antes de componetizar:
   const [data, setData] = useState(null);
   const urlAPI = import.meta.env.VITE_APP_API_URL;
 
@@ -21,26 +21,29 @@ function App() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, []);*/
 
   return (
     <>
-    {console.log(data)}
     <Router>
-      <div>
-        {data === null 
-        ? (<div>cargando...</div>) 
-        : 
           <Routes>
-            <Route path="/" element={<Home data={data} />} />
-            <Route path="/items" element={<Lista />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/items" element={<List />} />
           </Routes>
-        }
-        
-      </div>
     </Router>
     </>
   )
 }
 
 export default App;
+
+/* lo que estaba arriba y tenia un div
+   {data === null 
+        ? (<div>cargando...</div>) 
+        : 
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/items" element={<Lista />} />
+          </Routes>
+        }
+*/

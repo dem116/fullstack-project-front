@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom'
 
-const Lista = () => {
+const List = () => {
   const [listData, setListData] = useState(null);
   const urlListAPI = import.meta.env.VITE_APP_API_URL_LIST;
 
@@ -21,14 +21,14 @@ const Lista = () => {
 
   return (
     <>
-      <h1>Lista de la compra</h1>
+      <h1>Shopping List</h1>
       <Link to="/">
-              <button>Volver al menu semanal</button>
+              <button>Go to meal planner</button>
             </Link>
       {listData === null ? (
-        <p>Cargando lista de la compra...</p>
+        <p>Loading shopping list...</p>
       ) : listData.length === 0 ? (
-        <p>No hay ítems en la lista de la compra.</p>
+        <p>Nothing to buy! The shopping list is empty</p>
       ) : (
         <ul>
           {listData.map((item) => (
@@ -40,4 +40,4 @@ const Lista = () => {
   );
 };
 
-export default Lista;
+export default List;
