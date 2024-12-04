@@ -27,9 +27,12 @@ const Home = () => {
         : 
         <div>
         <h1>Weekly Meal Planner</h1>
-        <Link to="/items">
+          <Link to="/items">
               <button>Shopping list</button>
-            </Link>
+          </Link>
+          <Link to="/menu/create">
+              <button>Edit or create menu</button>
+          </Link>
         {data.dias && (
           <ul>
             {data.dias.map((dia) => (
