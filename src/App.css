@@ -81,6 +81,11 @@
   height: 30px;
 }
 
+.crossed-out {
+  text-decoration: line-through;
+  color: gray;
+}
+
 
 @media (max-width: 768px) {
   .buttons-menu {
