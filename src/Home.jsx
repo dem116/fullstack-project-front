@@ -27,17 +27,19 @@ const Home = () => {
         : 
         <div>
         <h1>Weekly Meal Planner</h1>
+          <div className='buttons-menu'>
           <Link to="/items">
               <button>Shopping list</button>
           </Link>
           <Link to="/menu/create">
               <button>Edit or create menu</button>
           </Link>
+          </div>
         {data.dias && (
-          <ul>
+          <ul className='menu-cotainer'>
             {data.dias.map((dia) => (
                 <div className='menuBox'>
-              <li key={dia.dia}>
+              <li key={dia.dia} className='menu-element'>
                 <h3>{dia.dia.charAt(0).toUpperCase() + dia.dia.slice(1)}</h3>
                 <p>Breakfast: {dia.desayuno?.comida || 'You have not added a meal yet'}</p>
                 <p>Lunch: {dia.almuerzo?.comida || 'You have not added a meal yet'}</p>

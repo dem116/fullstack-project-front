@@ -1,46 +1,77 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.container-menu-create {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.input-list {
+  width: 200px;
+  height: 22px;
+  border-radius: 1px;
+  border: solid black;
+}
+
+.buttons-menu {
+  padding-top: 2px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
 
 .menuBox {
-  background-color: red; /* FUNCIONA ESTE CSS*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #dcdac7;
+  padding-left: 1px;
+  border-radius: 5px;
+  border: 2px solid black
+}
+
+.menu-cotainer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.menu-element {
+  display: flex;
+  flex-direction: column;
+  padding: 3px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.button-list {
+  border-radius: 1px;
+  background-color:#efd9b0;
+  border: 1px solid black;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  background-color: #efd9b0;
+  width: 17px;
+  height: 17px
+}
+
+.button-add-list {
+  border-radius: 3px;
+  background-color:#efd9b0;
+  border: 1px solid black;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  background-color: #efd9b0;
+  width: 50px;
+  height: 30px
 }

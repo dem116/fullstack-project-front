@@ -78,14 +78,15 @@ const List = () => {
       <Link to="/">
         <button>Go to meal planner</button>
       </Link>
+      <div className="list-container">
       <form onSubmit={handleSubmit}>
-        <input
+        <input className="input-list"
           type="text"
           placeholder="I need..."
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
-        <button type="submit">Add</button>
+        <button type="submit" className='button-add-list'>Add</button>
       </form>
       {listData === null ? (
         <p>Loading shopping list...</p>
@@ -96,14 +97,15 @@ const List = () => {
           {listData.map((item) => (
             <li key={item._id}>
               {item.item}
-              <button type="button" onClick={() => handleDelete(item._id)}>
-                Delete
+              <button type="button" className='button-list' onClick={() => handleDelete(item._id)}>
+                x
               </button>
             </li>
           ))}
         </ul>
       )}
       <p>{responseMessage}</p>
+      </div>
     </>
   );
 };
