@@ -12,7 +12,8 @@
 }
 
 .input-list {
-  width: 200px;
+  width: 90%; 
+  max-width: 300px;
   height: 22px;
   border-radius: 1px;
   border: solid black;
@@ -20,12 +21,13 @@
 
 .buttons-menu {
   padding-top: 2px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: left;
-    gap: 10px;
-  }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
+  flex-wrap: wrap; 
+}
 
 .menuBox {
   display: flex;
@@ -34,7 +36,10 @@
   background-color: #dcdac7;
   padding-left: 1px;
   border-radius: 5px;
-  border: 2px solid black
+  border: 2px solid black;
+  width: 100%; 
+  max-width: 400px; 
+  margin-bottom: 10px;
 }
 
 .menu-cotainer {
@@ -48,30 +53,89 @@
   display: flex;
   flex-direction: column;
   padding: 3px;
-  width: fit-content;
-  height: fit-content;
+  width: 100%; 
+  max-width: 300px; 
 }
 
 .button-list {
   border-radius: 1px;
-  background-color:#efd9b0;
+  background-color: #efd9b0;
   border: 1px solid black;
   color: black;
   text-align: center;
   text-decoration: none;
   background-color: #efd9b0;
   width: 17px;
-  height: 17px
+  height: 17px;
 }
 
 .button-add-list {
   border-radius: 3px;
-  background-color:#efd9b0;
+  background-color: #efd9b0;
   border: 1px solid black;
   color: black;
   text-align: center;
   text-decoration: none;
-  background-color: #efd9b0;
-  width: 50px;
-  height: 30px
+  width: 100%;
+  max-width: 100px;
+  height: 30px;
+}
+
+
+@media (max-width: 768px) {
+  .buttons-menu {
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .menu-cotainer {
+    gap: 5px; 
+  }
+
+  .menuBox {
+    width: 100%;
+    margin: 5px 0; 
+  }
+
+  .input-list {
+    width: 100%; 
+  }
+
+  .button-add-list {
+    max-width: 80px;
+    height: 40px;
+  }
+
+  h1, h2, h3 {
+    font-size: 1.5rem; 
+    text-align: center;
+  }
+
+  button {
+    width: 100%; 
+    max-width: 200px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .menuBox {
+    padding: 5px;
+    font-size: 0.9rem; 
+  }
+
+  .menu-element {
+    max-width: 250px;
+  }
+
+  .button-list {
+    width: 25px; 
+    height: 25px;
+  }
+
+  .input-list {
+    font-size: 1rem; 
+  }
 }
