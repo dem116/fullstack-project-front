@@ -35,15 +35,15 @@ const Home = () => {
               <button>Edit or create menu</button>
           </Link>
           </div>
-        {data.dias && (
+        {data.days && (
           <ul className='menu-cotainer'>
-            {data.dias.map((dia) => (
+            {data.days.map((day) => (
                 <div className='menuBox'>
-              <li key={dia.dia} className='menu-element'>
-                <h3>{dia.dia.charAt(0).toUpperCase() + dia.dia.slice(1)}</h3>
-                <p>Breakfast: {dia.desayuno?.comida || 'You have not added a meal yet'}</p>
-                <p>Lunch: {dia.almuerzo?.comida || 'You have not added a meal yet'}</p>
-                <p>Dinner: {dia.cena?.comida || 'You have not added a meal yet'}</p>
+              <li key={day.day} className='menu-element'>
+                <h3>{day.day.charAt(0).toUpperCase() + day.day.slice(1)}</h3>
+                <p>Breakfast: {day.breakfast?.meal || 'You have not added a meal yet'}</p>
+                <p>Lunch: {day.lunch?.meal || 'You have not added a meal yet'}</p>
+                <p>Dinner: {day.dinner?.meal || 'You have not added a meal yet'}</p>
               </li>
               </div>
             ))}

@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 const MenuCreate = () => {
   const [menu, setMenu] = useState([
-    { dia: "lunes", desayuno: "", almuerzo: "", cena: "" },
-    { dia: "martes", desayuno: "", almuerzo: "", cena: "" },
-    { dia: "miércoles", desayuno: "", almuerzo: "", cena: "" },
-    { dia: "jueves", desayuno: "", almuerzo: "", cena: "" },
-    { dia: "viernes", desayuno: "", almuerzo: "", cena: "" },
-    { dia: "sábado", desayuno: "", almuerzo: "", cena: "" },
-    { dia: "domingo", desayuno: "", almuerzo: "", cena: "" },
+    { day: "monday", breakfast: "", lunch: "", dinner: "" },
+    { day: "tuesday", breakfast: "", lunch: "", dinner: "" },
+    { day: "wednesday", breakfast: "", lunch: "", dinner: "" },
+    { day: "thursday", breakfast: "", lunch: "", dinner: "" },
+    { day: "friday", breakfast: "", lunch: "", dinner: "" },
+    { day: "saturday", breakfast: "", lunch: "", dinner: "" },
+    { day: "sunday", breakfast: "", lunch: "", dinner: "" },
   ]);
 
   const [responseMessage, setResponseMessage] = useState('');
@@ -17,42 +17,41 @@ const MenuCreate = () => {
   const urlAPICreateMenu = import.meta.env.VITE_APP_API_URL_CREATEMENU;
   const urlAPIGetMenu = import.meta.env.VITE_APP_API_URL;
 
+  const fetchMenu = async () => {
+    try {
+      const response = await fetch(urlAPIGetMenu);
+      if (response.ok) {
+        const data = await response.json();
+        const updatedMenu = menu.map((day) => {
+          const savedDay = data.days.find((d) => d.day === day.day);
+          return {
+            ...day,
+            breakfast: savedDay?.breakfast?.meal || "",
+            lunch: savedDay?.lunch?.meal || "",
+            dinner: savedDay?.dinner?.meal || "",
+          };
+        });
+        setMenu(updatedMenu);
+      } else {
+        console.error("Failed to fetch the menu");
+      }
+    } catch (error) {
+      console.error("Error fetching the menu:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchMenu = async () => {
-      try {
-        const response = await fetch(urlAPIGetMenu);
-        if (response.ok) {
-          const data = await response.json();
-          const updatedMenu = menu.map((day) => {
-            const savedDay = data.dias.find((d) => d.dia === day.dia);
-            return {
-              ...day,
-              desayuno: savedDay?.desayuno?.comida || "",
-              almuerzo: savedDay?.almuerzo?.comida || "",
-              cena: savedDay?.cena?.comida || "",
-            };
-          });
-          setMenu(updatedMenu);
-        } else {
-          console.error("Failed to fetch the menu");
-        }
-      } catch (error) {
-        console.error("Error fetching the menu:", error);
-      }
-    };
-
     fetchMenu();
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
-      dias: menu.map((day) => ({
-        dia: day.dia,
-        desayuno: { comida: day.desayuno },
-        almuerzo: { comida: day.almuerzo },
-        cena: { comida: day.cena },
+      days: menu.map((day) => ({
+        day: day.day,
+        breakfast: { meal: day.breakfast },
+        lunch: { meal: day.lunch },
+        dinner: { meal: day.dinner },
       })),
     };
 
@@ -94,13 +93,13 @@ const MenuCreate = () => {
   
       if (response.ok) {
         setMenu([
-          { dia: "lunes", desayuno: "", almuerzo: "", cena: "" },
-          { dia: "martes", desayuno: "", almuerzo: "", cena: "" },
-          { dia: "miércoles", desayuno: "", almuerzo: "", cena: "" },
-          { dia: "jueves", desayuno: "", almuerzo: "", cena: "" },
-          { dia: "viernes", desayuno: "", almuerzo: "", cena: "" },
-          { dia: "sábado", desayuno: "", almuerzo: "", cena: "" },
-          { dia: "domingo", desayuno: "", almuerzo: "", cena: "" },
+          { day: "monday", breakfast: "", lunch: "", dinner: "" },
+          { day: "tuesday", breakfast: "", lunch: "", dinner: "" },
+          { day: "wednesday", breakfast: "", lunch: "", dinner: "" },
+          { day: "thursday", breakfast: "", lunch: "", dinner: "" },
+          { day: "friday", dbreakfast: "", lunch: "", dinner: "" },
+          { day: "saturday", breakfast: "", lunch: "", dinner: "" },
+          { day: "sunday", breakfast: "", lunch: "", dinner: "" },
         ]);
         setResponseMessage("Menu reset successfully");
       } else {
@@ -123,25 +122,25 @@ const MenuCreate = () => {
       <div className="container-menu-create">
       <form onSubmit={handleSubmit}>
         {menu.map((day, index) => (
-          <div key={day.dia}>
-            <h3>{day.dia.charAt(0).toUpperCase() + day.dia.slice(1)}</h3>
+          <div key={day.day}>
+            <h3>{day.day.charAt(0).toUpperCase() + day.day.slice(1)}</h3>
             <input
               type="text"
               placeholder="Add Breakfast"
-              value={day.desayuno}
-              onChange={(e) => handleInputChange(e, index, "desayuno")}
+              value={day.breakfast}
+              onChange={(e) => handleInputChange(e, index, "breakfast")}
             />
             <input
               type="text"
               placeholder="Add Lunch"
-              value={day.almuerzo}
-              onChange={(e) => handleInputChange(e, index, "almuerzo")}
+              value={day.lunch}
+              onChange={(e) => handleInputChange(e, index, "lunch")}
             />
             <input
               type="text"
               placeholder="Add Dinner"
-              value={day.cena}
-              onChange={(e) => handleInputChange(e, index, "cena")}
+              value={day.dinner}
+              onChange={(e) => handleInputChange(e, index, "dinner")}
             />
           </div>
         ))}
