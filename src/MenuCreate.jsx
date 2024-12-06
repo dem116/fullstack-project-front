@@ -97,7 +97,7 @@ const MenuCreate = () => {
           { day: "tuesday", breakfast: "", lunch: "", dinner: "" },
           { day: "wednesday", breakfast: "", lunch: "", dinner: "" },
           { day: "thursday", breakfast: "", lunch: "", dinner: "" },
-          { day: "friday", dbreakfast: "", lunch: "", dinner: "" },
+          { day: "friday", breakfast: "", lunch: "", dinner: "" },
           { day: "saturday", breakfast: "", lunch: "", dinner: "" },
           { day: "sunday", breakfast: "", lunch: "", dinner: "" },
         ]);
