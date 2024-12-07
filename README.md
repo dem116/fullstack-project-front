@@ -66,7 +66,7 @@ Renderiza el componente principal App.jsx.
 ```
 
 ## Instalación y configuración
-```
+
 1-Instalación de Node.js y npm:
 Descargar e instalar Node.js
 
@@ -89,7 +89,7 @@ VITE_APP_API_URL_CREATEMENU=<URL para crear menú>
 
 5-Iniciar el sevidor:
 npm run dev
-```
+
 
 ## Proximas imprementaciones
 ```
