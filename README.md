@@ -36,7 +36,7 @@ dotenv: Para gestionar variables de entorno.
 4-package.json: Contiene las dependencias y scripts del proyecto.
 
 ## Componentes principales
-
+```
 -App.jsx
 Gestión principal de rutas con react-router-dom.
 Incluye las rutas: / (Home), /items (Lista de Compras) y /menu/create (Crear o editar menú).
@@ -63,9 +63,10 @@ Reiniciar menú a valores predeterminados con un PUT.
 -main.jsx
 Punto de entrada de la aplicación React.
 Renderiza el componente principal App.jsx.
+```
 
 ## Instalación y configuración
-
+```
 1-Instalación de Node.js y npm:
 Descargar e instalar Node.js
 
@@ -78,17 +79,21 @@ npm install
 
 4-Configurar variables de entorno:
 Crear un archivo .env en la raíz con las siguientes variables:
+```
 VITE_APP_API_URL=<URL de la API>
 VITE_APP_API_URL_LIST=<URL para la lista>
 VITE_APP_API_URL_LISTCREATE=<URL para crear ítems>
 VITE_APP_API_URL_LISTDELETE=<URL para eliminar ítems>
 VITE_APP_API_URL_CREATEMENU=<URL para crear menú>
+```
 
 5-Iniciar el sevidor:
 npm run dev
-
+```
 
 ## Proximas imprementaciones
+```
 -Componetización y refactorizaciones
 -Componentes y paginas para el login (firebase)
 -Vista para la edicion de items y otros datos
+```
